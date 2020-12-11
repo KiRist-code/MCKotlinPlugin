@@ -1,6 +1,5 @@
 package kr.heartpattern.kotlinpluginsample
 
-import com.sun.tools.jdi.Packet
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -24,9 +23,13 @@ class MainCommand:Main(), Listener, CommandExecutor{
                     "hello" -> {
                         sender.sendMessage("Hello " + sender.name + "!")
                     }
+                    "help" -> {
+                        sender.sendMessage("sry, there is no help... so can u wait?")
+                    }
                 }
             }
         }
         return true
     }
+
 }
