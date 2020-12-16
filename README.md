@@ -1,4 +1,11 @@
 # MCKotlinPlugin
-made with Kotlin
+Minecraft Plugin made with **Kotlin**
 
-this is a sample so, u can clone this and edit it
+## install
+To install, U can install with git clone
+    git clone https://github.com/KiRist-code/MCKotlinPlugin.git
+
+
+## Usage
+ - if u wanna edit something, edit files(Main.kt, Command.kt)
+ - **important!!** download and build with spigot build .jar
