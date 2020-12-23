@@ -25,6 +25,27 @@ class MainCommand:Main(), Listener, CommandExecutor{
     @EventHandler
     public fun joinEvent(event: PlayerJoinEvent){
         event.player.sendMessage("Hello user! Welcome to my Server")
+        var players = Bukkit.getOnlinePlayers()
+        for(p in players) {
+            event.player.sendMessage(p.name)
+            p.allowFlight = true
+
+            val right = p.effectivePermissions
+            for(r in right){
+                p.sendMessage(r.permission)
+            }
+            if(p.hasPermission("minecraft.command.me")) {
+                p.sendMessage("U dont have permission!!")
+            }
+        }
+
+        var p = event.player
+        var inventar = p.inventory
+        var stack = ItemStack(Material.IRON_BLOCK,5)
+        inventar.addItem(stack)
+        if(inventar.contains(stack)){
+            p.sendMessage("Your first supply has been arrived!")
+        }
     }
 
     override fun onCommand(sender: CommandSender?, command: Command?, label: String?, args: Array<out String>?): Boolean {
