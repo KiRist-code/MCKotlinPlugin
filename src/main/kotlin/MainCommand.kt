@@ -41,11 +41,17 @@ class MainCommand:Main(), Listener, CommandExecutor{
 
         var p = event.player
         var inventar = p.inventory
-        var stack = ItemStack(Material.IRON_BLOCK,5)
+        var stack = ItemStack(Material.IRON_SWORD,5)
+        stack.addEnchantment(Enchantment.FIRE_ASPECT, 1)
+        var metadata = stack.itemMeta
+        metadata?.setDisplayName("Fire sword")
+        stack.itemMeta = metadata
         inventar.addItem(stack)
         if(inventar.contains(stack)){
             p.sendMessage("Your first supply has been arrived!")
         }
+
+
     }
 
     override fun onCommand(sender: CommandSender?, command: Command?, label: String?, args: Array<out String>?): Boolean {
