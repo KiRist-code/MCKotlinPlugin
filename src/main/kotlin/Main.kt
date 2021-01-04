@@ -30,6 +30,18 @@ open class Main: JavaPlugin(), Listener, CommandExecutor{
         Bukkit.getScheduler().runTaskTimer(this, runTimer(), 20*3, 20*10)
         Bukkit.getScheduler().runTaskTimer(this, setDay(), 20*3, 20*30)
     }
+    
+    @EventHandler
+    public fun blockBreak(event: BlockBreakEvent){
+        val player = event.player
+        val block = event.block
+        var items = block.drops
+        for (i in items){
+            player.inventory.addItem(i)
+        }
+        block.type = Material.AIR
+        event.isCancelled = true //important code
+    }
 
     override fun onDisable(){
         logger.info("Plugin disabled")
